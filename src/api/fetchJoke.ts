@@ -1,7 +1,8 @@
 import { getTodayISO } from "../utils/date";
 import { reportJokes } from "../data/reportJokes";
 
-const apis = [
+// List of joke APIs with instructions on how to extract the joke from each response
+let apis = [
   {
     url: "https://api.chucknorris.io/jokes/random",
     extractJoke: (data: any) => data.value,
@@ -15,21 +16,31 @@ const apis = [
 
 let callCount = 0;
 
+// Fetch a joke from one of the APIs and save it to the report
 export async function fetchJoke(): Promise<string> {
-  const apiIndex = callCount % apis.length;
-  const api = apis[apiIndex];
+  let apiIndex = callCount % apis.length;
+  let selectedApi = apis[apiIndex];
   callCount++;
 
   try {
-    const response = await fetch(api.url, api.options);
-    if (!response.ok) throw new Error(`Status: ${response.status}`);
+    let response = await fetch(selectedApi.url, selectedApi.options);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch: ${response.status}`);
+    }
 
-    const data = await response.json();
-    const joke = api.extractJoke(data);
-    reportJokes.push({ joke, rating: null, date: getTodayISO() });
+    let data = await response.json();
+    let joke = selectedApi.extractJoke(data);
+
+    // Store the joke with a null rating and today's date
+    reportJokes.push({
+      joke,
+      rating: null,
+      date: getTodayISO(),
+    });
+
     return joke;
   } catch (error: any) {
     console.error("Error fetching joke:", error.message);
-    return "Oops! no joke today.";
+    return "Oops! No joke today. Try again later.";
   }
 }

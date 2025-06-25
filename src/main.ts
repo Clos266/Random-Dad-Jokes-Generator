@@ -4,7 +4,7 @@ import { displayWeather } from './dom/ui';
 
 async function loadWeather() {
   try {
-    const texto = await fetchWeather("Barcelona");
+    let texto = await fetchWeather("Barcelona");
     displayWeather(texto);
   } catch {
     displayWeather("No se pudo cargar el clima.");
