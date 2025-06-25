@@ -1,16 +1,16 @@
 import { fetchWeather } from './api/fetchWeather';
-import { mostrarClima } from './dom/ui';
+import { displayWeather } from './dom/ui';
 // import './scriptShare.ts';
 
-async function cargarClima() {
+async function loadWeather() {
   try {
     const texto = await fetchWeather("Barcelona");
-    mostrarClima(texto);
+    displayWeather(texto);
   } catch {
-    mostrarClima("No se pudo cargar el clima.");
+    displayWeather("No se pudo cargar el clima.");
   }
 }
 
-cargarClima();
+loadWeather();
 
 console.log("main.ts load");

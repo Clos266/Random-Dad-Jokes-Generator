@@ -1,35 +1,37 @@
-// --- METEO ---
-export function mostrarClima(texto: string): void {
-  const el = document.getElementById("clima");
-  if (el) el.textContent = texto;
+// meteo
+export function displayWeather(text: string): void {
+  let weatherElement = document.getElementById("clima");
+  if (weatherElement) {
+    weatherElement.textContent = text;
+  }
 }
 
-// --- CHISTES ---
+// jokes
 import { fetchJoke } from "../api/fetchJoke";
 import { reportJokes } from "../data/reportJokes";
 
-const jokeContainer = document.querySelector(".joke-container")!;
-const nextBtn = document.getElementById("nextBtn");
-const voteButtons = document.querySelectorAll(".vote-btn");
+let jokeContainer = document.querySelector(".joke-container")!;
+let nextBtn = document.getElementById("nextBtn");
+let voteButtons = document.querySelectorAll(".vote-btn");
 
-// Mostrar chiste inicial
+// first joke
 (async () => {
   jokeContainer.textContent = await fetchJoke();
 })();
 
-// Botón siguiente chiste
+// next joke
 nextBtn?.addEventListener("click", async () => {
   jokeContainer.textContent = await fetchJoke();
-  voteButtons.forEach(b => b.classList.remove("active"));
+  voteButtons.forEach(button => button.classList.remove("active"));
 });
 
-// Cambiar puntuación
+// score 
 voteButtons.forEach(btn => {
   btn.addEventListener("click", () => {
-    voteButtons.forEach(b => b.classList.remove("active"));
+    voteButtons.forEach(btn => btn.classList.remove("active"));
     btn.classList.add("active");
 
-    const rating = (btn as HTMLButtonElement).dataset.value;
+    let rating = (btn as HTMLButtonElement).dataset.value;
     if (reportJokes.length > 0) {
       reportJokes[reportJokes.length - 1].rating = Number(rating ?? 0);
       console.log("Updated reportJokes:", reportJokes);
