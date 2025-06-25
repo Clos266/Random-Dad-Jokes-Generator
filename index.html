@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dad Jokes</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+
+  <body class="d-flex justify-content-center align-items-center vh-100">
+    <div
+      class="container card w-100 w-sm-75 w-md-50 w-lg-25 px-4 py-5 text-center shadow bg-white bg-opacity-50"
+    >
+      <div id="clima">Cargando clima...</div>
+      <h1 class="display-1">Random Dad Joke!</h1>
+      <div
+        class="joke-container d-flex justify-content-center bg-light text-dark"
+      ></div>
+      <h2 class="display-4">rate it</h2>
+      <div class="d-flex justify-content-center gap-2" role="group">
+        <button
+          type="button"
+          id="onePoint"
+          class="vote-btn mt-2 rounded-circle my-circle btn btn-outline-danger"
+          data-value="1"
+        >
+          😞
+        </button>
+        <button
+          type="button"
+          id="twoPoints"
+          class="vote-btn mt-2 rounded-circle my-circle btn btn-outline-warning"
+          data-value="2"
+        >
+          😐
+        </button>
+        <button
+          type="button"
+          id="threePoints"
+          class="vote-btn mt-2 rounded-circle my-circle btn btn-outline-success"
+          data-value="3"
+        >
+          😄
+        </button>
+      </div>
+      <div class="d-flex justify-content-center gap-2">
+        <button
+          type="button"
+          id="nextBtn"
+          class="d-flex justify-content-center mt-2 btn btn-primary max-w-40vh border-dark"
+        >
+          Next
+        </button>
+      </div>
+      <div class="d-flex justify-content-center gap-2">
+        <button
+          id="shareBtn"
+          class="d-flex justify-content-center mt-2 btn max-w-40vh"
+        >
+          🔗
+        </button>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
