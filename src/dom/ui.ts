@@ -1,3 +1,10 @@
+// --- METEO ---
+export function mostrarClima(texto: string): void {
+  const el = document.getElementById("clima");
+  if (el) el.textContent = texto;
+}
+
+// --- CHISTES ---
 import { fetchJoke } from "../api/fetchJoke";
 import { reportJokes } from "../data/reportJokes";
 
