@@ -1,27 +1,35 @@
-const button = document.querySelector('button');
-const jokeContainer = document.querySelector('.joke-container');
+import { getTodayISO } from "../utils/date";
+import { reportJokes } from "../data/reportJokes";
 
-if (!button || !jokeContainer) {
-  throw new Error('No se encontró el botón o el contenedor de chistes');
-}
+const apis = [
+  {
+    url: "https://api.chucknorris.io/jokes/random",
+    extractJoke: (data: any) => data.value,
+  },
+  {
+    url: "https://icanhazdadjoke.com/",
+    options: { headers: { Accept: "application/json" } },
+    extractJoke: (data: any) => data.joke,
+  },
+];
 
-async function traerChiste(): Promise<void> {
+let callCount = 0;
+
+export async function fetchJoke(): Promise<string> {
+  const apiIndex = callCount % apis.length;
+  const api = apis[apiIndex];
+  callCount++;
+
   try {
-    const res = await fetch('https://icanhazdadjoke.com', {
-      headers: {
-        'Accept': 'application/json',
-      },
-    });
-    if (!res.ok) throw new Error('Respuesta no OK');
-    const data: { joke: string } = await res.json();
-    jokeContainer.innerHTML = `<p>${data.joke}</p>`;
+    const response = await fetch(api.url, api.options);
+    if (!response.ok) throw new Error(`Status: ${response.status}`);
 
-  } catch (error) {
-    console.error('Error al traer el chiste:', error);
-    jokeContainer.textContent = 'No se pudo cargar un chiste.';
+    const data = await response.json();
+    const joke = api.extractJoke(data);
+    reportJokes.push({ joke, rating: null, date: getTodayISO() });
+    return joke;
+  } catch (error: any) {
+    console.error("Error fetching joke:", error.message);
+    return "Oops! no joke today.";
   }
 }
-
-traerChiste();
-
-button.addEventListener('click', traerChiste);
