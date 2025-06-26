@@ -2,12 +2,16 @@
 
 A web application that displays random dad jokes alternating with Chuck Norris jokes, built as part of the IT Academy bootcamp.
 
-## ✨ Features
+✨ Features
+🎭 Random dad jokes and Chuck Norris jokes
 
-- 🎭 Random dad jokes and Chuck Norris jokes
-- 🌤️ Current weather display for Barcelona
-- 📁 Clean file structure following best practices
-- 🔷 TypeScript implementation with API integration
+🌤️ Current weather display for Barcelona
+
+📊 Joke rating system (score from 1 to 3)
+
+📁 Clean file structure following best practices
+
+🔷 TypeScript implementation with API integration
 
 ## Project Structure
 
@@ -15,12 +19,13 @@ A web application that displays random dad jokes alternating with Chuck Norris j
 📦 src/
 ├── 📁 api/
 │   └── fetchJoke.ts         # Joke fetching logic
+│   └── fetchWeather.ts      # Weather fetching logic
 ├── 📁 data/
 │   └── reportJokes.ts       # Array and logic for storing ratings
 ├── 📁 utils/
 │   └── date.ts              # getTodayISO function
 ├── 📁 tests/
-│   └── fetchJoke.test.ts    # Test files
+│   └── fetchJoke.test.ts    # Test files (planned)
 ├── 📁 dom/
 │   └── ui.ts                # DOM manipulation functions
 ├── main.ts                  # Entry point (event logic, etc.)
@@ -32,7 +37,6 @@ A web application that displays random dad jokes alternating with Chuck Norris j
 
 - 📍 Location detection via IP or other methods
 - 🌡️ Temperature-based joke selection (e.g., Pingu jokes for cold weather, Charmander jokes for hot weather)
-- 🔍 Specific joke search functionality
 
 ## 🛠️ Technologies Used
 
