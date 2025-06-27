@@ -35,11 +35,13 @@ A web application that displays random dad jokes alternating with Chuck Norris j
 
 ## 🚀 Future Implementations
 
+- 🔗 share button / api
 - 📍 Location detection via IP or other methods
 - 🌡️ Temperature-based joke selection (e.g., Pingu jokes for cold weather, Charmander jokes for hot weather)
 
 ## 🛠️ Technologies Used
 
+- 🎨 Bootstrap
 - 🔷 TypeScript
 - ⚡ Vite
 - 🧪 Vitest (planned)
