@@ -1,6 +1,5 @@
 import { fetchWeather } from './api/fetchWeather';
 import { displayWeather } from './dom/ui';
-// import './scriptShare.ts';
 
 async function loadWeather() {
   try {
@@ -13,4 +12,3 @@ async function loadWeather() {
 
 loadWeather();
 
-console.log("main.ts load");

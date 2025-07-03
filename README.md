@@ -1,3 +1,5 @@
+![Preview](https://i.ibb.co/fzq6zpT/image.jpg)
+
 # 😂 Random Dad Jokes Generator
 
 A web application that displays random dad jokes alternating with Chuck Norris jokes, built as part of the IT Academy bootcamp.

@@ -9,7 +9,7 @@ export async function fetchWeather(city: string = "Barcelona"): Promise<string> 
     let weather = await response.text();
     return weather;
   } catch (error) {
-    console.error(`Failed to fetch weather for "${city}":`, error);
+    
     throw error;
   }
 }
