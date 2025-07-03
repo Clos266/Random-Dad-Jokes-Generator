@@ -1,5 +1,4 @@
 ![Preview](https://i.ibb.co/dwjCw2HN/171shots-so.png)
-git push
 
 # 😂 Random Dad Jokes Generator
 
