@@ -1,4 +1,4 @@
-![Preview](https://i.ibb.co/fzq6zpT/image.jpg)
+![Preview](https://ibb.co/fzq6zpT3)
 
 # 😂 Random Dad Jokes Generator
 
